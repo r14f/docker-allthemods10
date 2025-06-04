@@ -1,3 +1,4 @@
+
 # [All the Mods 10-3.2](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10) on Curseforge
 <!-- toc -->
 
@@ -16,6 +17,7 @@
 ## Description
 
 This container is built to run on an [Unraid](https://unraid.net) server, outside of that your mileage will vary.
+
 
 The docker on the first run will download the same version as tagged `All the Mods 10-3.2` and install it.  This can take a while as the Forge installer can take a bit to complete.  You can watch the logs and it will eventually finish.
 
@@ -60,7 +62,12 @@ Github: https://github.com/Goobaroo/docker-allthemods9
 
 Docker: https://hub.docker.com/repository/docker/goobaroo/allthemods9
 
-## Source (This repo)
+## Source (W3LFARe repo)
 Github: https://github.com/W3LFARe/docker-allthemods10
 
 Docker: https://registry.hub.docker.com/r/w3lfare/allthemods10 
+
+## Source (Gadoon repo)
+Github: https://github.com/gadoon/docker-allthemods10
+
+Docker: https://registry.hub.docker.com/r/gideon77/allthemods10 
