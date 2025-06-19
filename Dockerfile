@@ -1,22 +1,48 @@
 # syntax=docker/dockerfile:1
 
-FROM openjdk:21-buster
+# Use a more specific and stable base image
+FROM openjdk:21-jdk-slim
 
-LABEL version="4.0"
+# Set metadata
+LABEL maintainer="r14f" \
+      description="All The Mods 10 Minecraft Server" \
+      version="4.0"
 
+# Create non-root user for security
+RUN groupadd -r minecraft --gid=1000 && \
+    useradd -r -g minecraft --uid=1000 --home-dir=/data --shell=/bin/bash minecraft
 
-RUN apt-get update && apt-get install -y curl unzip jq && \
-    adduser --uid 99 --gid 100 --home /data --disabled-password minecraft
+# Update package lists
+RUN apt-get update
 
-COPY launch.sh /launch.sh
-RUN chmod +x /launch.sh
+# Install packages separately for better caching in unRAID
+RUN apt-get install -y --no-install-recommends curl
+RUN apt-get install -y --no-install-recommends unzip  
+RUN apt-get install -y --no-install-recommends jq
+RUN apt-get install -y --no-install-recommends ca-certificates
 
+# Clean up in final step
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Set working directory and create with proper ownership
+WORKDIR /data
+RUN chown minecraft:minecraft /data
+
+# Copy launch script with proper permissions
+COPY --chown=minecraft:minecraft launch.sh /data/launch.sh
+RUN chmod +x /data/launch.sh
+
+# Only set essential environment variables that affect container behavior
+ENV EULA=false
+
+# Expose Minecraft port
+EXPOSE 25565
+
+# Create volume for persistent data
+VOLUME ["/data"]
+
+# Switch to non-root user
 USER minecraft
 
-VOLUME /data
-WORKDIR /data
- 
-EXPOSE 25565/tcp
-
-CMD ["/launch.sh"]
- 
+# Use exec form for better signal handling
+ENTRYPOINT ["/data/launch.sh"]
