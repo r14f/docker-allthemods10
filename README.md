@@ -66,8 +66,3 @@ Docker: https://hub.docker.com/repository/docker/goobaroo/allthemods9
 Github: https://github.com/W3LFARe/docker-allthemods10
 
 Docker: https://registry.hub.docker.com/r/w3lfare/allthemods10 
-
-## Source (Gadoon repo)
-Github: https://github.com/gadoon/docker-allthemods10
-
-Docker: https://registry.hub.docker.com/r/gideon77/allthemods10 
