@@ -16,14 +16,14 @@
 
 ## Description
 
-This container is built to run on an [Unraid](https://unraid.net) server, outside of that your mileage will vary.
+This container is built to run on an [Unraid](https://unraid.net) server; outside of that, your mileage will vary.
 
 
-The docker on the first run will download the same version as tagged `All the Mods 10-4.0` and install it.  This can take a while as the Forge installer can take a bit to complete.  You can watch the logs and it will eventually finish.
+The Docker on the first run will download the same version as tagged `All the Mods 10-4.0` and install it.  This can take a while as the Forge installer can take a bit to complete.  You can watch the logs, and it will eventually finish.
 
 After the first run, it will simply start the server.
 
-Note: There are no modded Minecraft files shipped in the container, they are all downloaded at runtime.
+Note: There are no modded Minecraft files shipped in the container; they are all downloaded at runtime.
 
 ## Requirements
 
@@ -31,7 +31,7 @@ Note: There are no modded Minecraft files shipped in the container, they are all
 * Port 25565/tcp mapped
 * environment variable EULA set to "true"
 
-As the end user, you are responsible for accepting the EULA from Mojang to run their server, by default in the container it is set to false.
+As the end user, you are responsible for accepting the EULA from Mojang to run their server; by default, in the container, it is set to false.
 
 ## Options
 
@@ -52,17 +52,18 @@ These environment variables can be set to override their defaults.
 Did you pass in the environment variable EULA set to `true`?
 
 ### Permissions of Files
-This container is designed for [Unraid](https://unraid.net) so the user in the container runs on uid 99 and gid 100.  This may cause permission errors on the /data mount on other systems.
+This container is designed for [Unraid](https://unraid.net), so the user in the container runs with a UID of 99 and a GID of 100.  This may cause permission errors on the /data mount on other systems.
 
 ### Resetting
 If the installation is incomplete for some reason.  Deleting the downloaded server file in /data will restart the install/upgrade process.
 
 ## Source (Original ATM9 repo)
 Github: https://github.com/Goobaroo/docker-allthemods9
-
 Docker: https://hub.docker.com/repository/docker/goobaroo/allthemods9
 
-## Source (W3LFARe repo)
+## Source
+Github: https://github.com/RFlor14/docker-allthemods10
+Docker: https://hub.docker.com/repository/docker/r14f/allthemods10
+//
 Github: https://github.com/W3LFARe/docker-allthemods10
-
 Docker: https://registry.hub.docker.com/r/w3lfare/allthemods10 
