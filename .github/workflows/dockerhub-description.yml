@@ -6,17 +6,19 @@ on:
     paths:
       - README.md
       - .github/workflows/dockerhub-description.yml
+
 jobs:
   dockerHubDescription:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-    - name: Docker Hub Description
-      uses: peter-evans/dockerhub-description@v4
+    - name: Update Docker Hub Description
+      uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: r14f/docker-allthemods10
-        short-description: ${{ github.event.repository.description }}
+        short-description: "All The Mods 10 Minecraft Server optimized for unRAID Docker deployment"
         enable-url-completion: true
