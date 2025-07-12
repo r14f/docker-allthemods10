@@ -6,7 +6,7 @@ FROM openjdk:21-jdk-slim
 # Set metadata
 LABEL maintainer="r14f" \
       description="All The Mods 10 Minecraft Server" \
-      version="4.2"
+      version="4.3"
 
 # Create non-root user for security
 RUN groupadd -r minecraft --gid=1000 && \
