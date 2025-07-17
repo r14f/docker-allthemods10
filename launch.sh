@@ -10,7 +10,7 @@ fi
 set -eo pipefail
 
 NEOFORGE_VERSION=21.1.191
-SERVER_VERSION=4.3
+SERVER_VERSION=4.4
 
 # Ensure we're in the data directory (mounted volume in unRAID)
 cd /data || { echo "Failed to access /data volume"; exit 1; }
@@ -38,7 +38,7 @@ download_and_extract() {
     echo "Downloading server files (this may take a while)..."
     curl -fL --connect-timeout 30 --max-time 600 \
       -o "Server-Files-$SERVER_VERSION.zip" \
-      "https://mediafilez.forgecdn.net/files/6759/65/ServerFiles-$SERVER_VERSION.zip" || {
+      "https://mediafilez.forgecdn.net/files/6763/760/ServerFiles-$SERVER_VERSION.zip" || {
       echo "Failed to download server files. Check your internet connection."
       exit 9
     }
