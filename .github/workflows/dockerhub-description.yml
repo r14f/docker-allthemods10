@@ -20,5 +20,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: r14f/allthemods10
-        short-description: "AllTheMods10-4.1 Minecraft Server optimized for unRAID Docker."
+        short-description: "AllTheMods10-4.10 Minecraft Server optimized for unRAID Docker."
         enable-url-completion: true
