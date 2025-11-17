@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Use a more specific and stable base image
-FROM openjdk:21-jdk-slim
+FROM amazoncorretto:21
 
 # Set metadata
 LABEL maintainer="r14f" \
