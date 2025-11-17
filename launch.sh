@@ -6,7 +6,7 @@ if [[ "${DEBUG:-false}" == "true" ]]; then
   set -x
 fi
 
-# Set error handling but be more permissive for unRAID
+# Set error handling, but be more permissive for unRAID
 set -eo pipefail
 
 NEOFORGE_VERSION=21.1.215
