@@ -12,17 +12,17 @@ LABEL maintainer="r14f" \
 RUN addgroup -g 1000 -S minecraft && \
     adduser -u 1000 -G minecraft -h /data -s /bin/bash -D minecraft
 
-# Update package lists
-RUN apt-get update
+# Update package lists (optional with --no-cache, but good for fresh index)
+RUN apk update
 
 # Install packages separately for better caching in unRAID
-RUN apt-get install -y --no-install-recommends curl
-RUN apt-get install -y --no-install-recommends unzip  
-RUN apt-get install -y --no-install-recommends jq
-RUN apt-get install -y --no-install-recommends ca-certificates
+RUN apk add --no-cache curl
+RUN apk add --no-cache unzip  
+RUN apk add --no-cache jq
+RUN apk add --no-cache ca-certificates
 
-# Clean up in final step
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Clean up in final step (mostly for temp files; --no-cache handles apk cache)
+RUN rm -rf /tmp/* /var/tmp/*
 
 # Set working directory and create with proper ownership
 WORKDIR /data
