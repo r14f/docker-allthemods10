@@ -52,7 +52,7 @@ These environment variables can be set to override their defaults.
 Did you pass in the environment variable EULA set to `true`?
 
 ### Permissions of Files
-This container is designed for [Unraid](https://unraid.net), so the user in the container runs with a UID of 99 and a GID of 100.  This may cause permission errors on the /data mount on other systems.
+This container is designed for [Unraid](https://unraid.net), so the user running in the container has a UID of 99 and a GID of 100.  This may cause permission errors on the /data mount on other systems.
 
 ### Resetting
 If the installation is incomplete for some reason.  Deleting the downloaded server file in /data will restart the install/upgrade process.
