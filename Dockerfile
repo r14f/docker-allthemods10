@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Use a more specific and stable base image
-FROM amazoncorretto:21
+FROM eclipse-temurin:21-jdk-alpine
 
 # Set metadata
 LABEL maintainer="r14f" \
