@@ -9,7 +9,8 @@ LABEL maintainer="r14f" \
       version="5.10"
 
 # Create non-root user for security
-RUN /usr/sbin/groupadd -r minecraft --gid=1000 && /usr/sbin/useradd -r -g minecraft --uid=1000 --home-dir=/data --shell=/bin/bash minecraft
+RUN addgroup -g 1000 -S minecraft && \
+    adduser -u 1000 -G minecraft -h /data -s /bin/bash -D minecraft
 
 # Update package lists
 RUN apt-get update
