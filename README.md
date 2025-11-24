@@ -33,10 +33,10 @@ Note: There are no modded Minecraft files shipped in the container; they are all
 
 As the end user, you are responsible for accepting the EULA from Mojang to run their server; by default, in the container, it is set to false.
 
-## Installation (Import into Unraid manually)
+## Manual Installation (Importing into Unraid manually)
 
 Unraid Template Link - [Here](https://github.com/r14f/unraid/blob/main/allthemods10_server.xml)
-- Download the XML
+- Download the XML (Top right, 3 dots, click download)
 - Log into your Unraid web GUI.
 - Go to the Docker tab.
 - Click the dropdown arrow next to Add Container (top right) → select User Templates.
