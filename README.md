@@ -33,6 +33,17 @@ Note: There are no modded Minecraft files shipped in the container; they are all
 
 As the end user, you are responsible for accepting the EULA from Mojang to run their server; by default, in the container, it is set to false.
 
+## Installation (Import into Unraid manually)
+
+Unraid Template Link - [Here](https://github.com/r14f/unraid/blob/main/allthemods10_server.xml)
+- Download the XML
+- Log into your Unraid web GUI.
+- Go to the Docker tab.
+- Click the dropdown arrow next to Add Container (top right) → select User Templates.
+- Click "Import a template" (or if you see "Add new template" → "From URL" or file upload option; Unraid 6.12+ has a direct file import).
+- Browse to your downloaded allthemods10_server.xml file and upload/import it.
+- Unraid will validate and add it as a new template under User Templates (it'll show up like any CA app, named something like "AllTheMods10 Server").
+
 ## Options
 
 These environment variables can be set to override their defaults.
@@ -57,10 +68,7 @@ This container is designed for [Unraid](https://unraid.net), so the user running
 ### Resetting
 If the installation is incomplete for some reason.  Deleting the downloaded server file in /data will restart the install/upgrade process.
 
-## Source (Original ATM9/10 repo)
-Github: https://github.com/Goobaroo/docker-allthemods9 <br />
-Docker: https://hub.docker.com/repository/docker/goobaroo/allthemods9 <br />
-
+## Source (Original ATM10 repo)
 
 Github: https://github.com/W3LFARe/docker-allthemods10 <br />
 Docker: https://registry.hub.docker.com/r/w3lfare/allthemods10 <br />
