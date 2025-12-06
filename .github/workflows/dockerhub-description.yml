@@ -1,24 +1,29 @@
-name: Update Docker Hub Description
+name: Docker Hub Description
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
     paths:
-      - README.md
-      - .github/workflows/dockerhub-description.yml
+     - README.md
+     - .github/workflows/dockerhub-description.yml
+
+permissions:
+  contents: read  # Explicit for checkout
 
 jobs:
-  dockerHubDescription:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
 
-    - name: Update Docker Hub Description
-      uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: r14f/allthemods10
-        short-description: "AllTheMods10-5.3.1 Minecraft Server optimized for unRAID Docker."
-        enable-url-completion: true
+  dockerhub-description:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2  # Latest patch
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v5.0.0  # Latest: v5.0.0
+        with:
+         username: ${{ secrets.DOCKERHUB_USERNAME }}
+         password: ${{ secrets.DOCKERHUB_TOKEN }}
+         repository: r14f/allthemods10
+         short-description: "AllTheMods10-5.3.1 Minecraft Server optimized for unRAID Docker."
+         enable-url-completion: true
