@@ -7,16 +7,20 @@ on:
 
 jobs:
   update-mod:
-    runs-on: ubuntu-24.04  # Explicitly specify ubuntu-24.04
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Explicit for git push
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4 
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4  
         with:
-          node-version: '14'
+          node-version: '20' 
+          cache: 'npm'
 
       - name: Create package.json
         run: |
@@ -38,5 +42,9 @@ jobs:
           git config --global user.name $USER_NAME
           git config --global user.email $USER_EMAIL
           git add -A
-          git commit -m 'Update launch.sh and Dockerfile with latest server file info'
-          git push
+          if git diff --quiet --exit-code; then
+            echo "No changes to commit."
+          else
+            git commit -m 'Update launch.sh and Dockerfile with latest server file info.'
+            git push
+          fi
