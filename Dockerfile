@@ -6,7 +6,7 @@ FROM eclipse-temurin:21-jdk-alpine
 # Set metadata
 LABEL maintainer="r14f" \
       description="All The Mods 10 Minecraft Server" \
-      version="5.1"
+      version="5.3.1"
 
 # Create non-root user for security
 RUN addgroup -g 1000 -S minecraft && \
