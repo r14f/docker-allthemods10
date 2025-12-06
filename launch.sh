@@ -11,6 +11,7 @@ set -eo pipefail
 
 NEOFORGE_VERSION=21.1.215
 SERVER_VERSION=5.3.1
+SERVER_FILE=https://mediafilez.forgecdn.net/files/7294/979/ServerFiles-5.3.1.zip
 
 # Ensure we're in the data directory (mounted volume in unRAID)
 cd /data || { echo "Failed to access /data volume"; exit 1; }
@@ -19,7 +20,7 @@ cd /data || { echo "Failed to access /data volume"; exit 1; }
 if [[ "${EULA:-false}" != "true" ]]; then
   echo "=========================================="
   echo "You must accept the EULA to continue."
-  echo "Set EULA=true in your unRAID template"
+  echo "Set EULA=true in your unRAID template."
   echo "=========================================="
   exit 99
 fi
@@ -38,7 +39,7 @@ download_and_extract() {
     echo "Downloading server files (this may take a while)..."
     curl -fL --connect-timeout 30 --max-time 600 \
       -o "Server-Files-$SERVER_VERSION.zip" \
-      "https://mediafilez.forgecdn.net/files/7294/979/ServerFiles-$SERVER_VERSION.zip" || {
+      "$SERVER_FILE" || {
       echo "Failed to download server files. Check your internet connection."
       exit 9
     }
