@@ -10,8 +10,8 @@ fi
 set -eo pipefail
 
 NEOFORGE_VERSION=21.1.215
-SERVER_VERSION=5.3.1
-SERVER_FILE=https://mediafilez.forgecdn.net/files/7294/979/ServerFiles-5.3.1.zip
+SERVER_VERSION=5.4
+SERVER_FILE=https://mediafilez.forgecdn.net/files/7361/524/ServerFiles-5.4.zip
 
 # Ensure we're in the data directory (mounted volume in unRAID)
 cd /data || { echo "Failed to access /data volume"; exit 1; }
